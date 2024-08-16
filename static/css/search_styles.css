@@ -1,0 +1,110 @@
+.datepicker-input {
+  width: 15%;
+  display: inline-block;
+  margin-right: 5px; /* 오른쪽 여백 줄이기 */
+}
+
+#submit-btn {
+  background-color: #1b2b6d;
+  color: white;
+  /* margin-left: 5px; 왼쪽 여백 줄이기 */
+}
+
+.container {
+  width: 100%;
+  margin: 0;
+}
+
+.content {
+  margin-top: 10px; /* 위쪽 여백 줄이기 */
+  width: 120%;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.right-table {
+  height: 590px; /* 높이 제한 */
+  width: 100%;
+  overflow-y: auto;
+}
+
+.table {
+  width: 100%;
+  text-align: center;
+  font-size: small;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #ddd;
+}
+
+.table thead th {
+  background-color: #1b2b6d;
+  color: white;
+  padding-top: 8px; /* 패딩 줄이기 */
+  padding-bottom: 8px; /* 패딩 줄이기 */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table td:first-child,
+.table th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.table td:last-child,
+.table th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.chart-table-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+#piChart {
+  flex: 1;
+}
+
+#tableContainer {
+  flex: 1;
+}
+
+#dataTable {
+  margin-top: 10px;
+}
+
+#defectPeriod {
+  display: inline;
+  float:right;
+  
+}
+
+.chartTitle {
+  margin-bottom: 2rem;
+}
+
+#alarm {
+  width: 30%;
+  margin-left: 1rem;
+}
+
+.form-inline {
+  margin-top: 20px;
+}
+
+.contentContainer {
+  overflow: hidden;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#rank-table {
+  font-size: 1rem;
+
+}

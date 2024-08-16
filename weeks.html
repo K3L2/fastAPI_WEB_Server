@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weeks Defect</title>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- ECharts 라이브러리 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/main_style.css">
+    <link rel="stylesheet" href="/static/css/weeks.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Dongle&family=Jua&family=Nanum+Gothic&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- 상단 메뉴 바 -->
+     <div id="top-bar">
+        <button class="menu-button" onclick="toggleSidebar()">&#9776; 메뉴</button>
+    </div>
+    
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">&#10006;</button>
+        <!-- <h2>메뉴</h2> -->
+        <ul style="margin-top: 2rem;">
+            <li><a href="/dashboard">DashBoard</a></li>
+            <li style="background-color: rgb(236, 236, 236);"><a href="/weeks" style="color: black;">Weeks</a></li>
+            <li><a href="/search">Search</a></li>
+        </ul>
+    </div>
+
+    <div id="main-content" class="main-content" style="width: 100%">
+        <div id="section1" style="margin: 1rem 0 2rem 0; width: 100%" class="contentContainer">
+          <h3 class="chartTitle">주차별 불량 개수</h3>
+          <div id="barChart" style="width: 100%; height: 500px;"></div>
+        </div>
+        
+        <!-- <p>여기에 두 번째 단락 내용이 들어갑니다.</p> -->
+        <div class="chart-table-container">
+            <!-- 원형 차트를 표시할 div -->
+            <div id="chartContainer" class="contentContainer">
+              <h3>금주 불량 비율</h3>
+              <div id="piChart" style="width: 500px; height: 350px;"></div>
+            </div>
+            
+            <!-- 테이블을 추가 -->
+            <div id="tableContainer" class="contentContainer">
+              <div id='table-title'>
+                  <h3 class="chartTitle">금주 불량 순위</h3>
+                  <h6 class="text-secondary" id="defectPeriod"><span id="startDate">20240729</span> ~ <span id="endDate">20240804</span></h6>
+              </div>
+              <div>
+                <table id="errorRankTable" class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">에러 종류</th>
+                      <th scope="col">비율</th>
+                      <th scope="col">총 개수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>패턴 불량</td>
+                      <td>50%</td>
+                      <td>500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>잉크 불량</td>
+                      <td>25%</td>
+                      <td>250</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>스크래치 불량</td>
+                      <td>15%</td>
+                      <td>150</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>금도금 불량</td>
+                      <td>10%</td>
+                      <td>100</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+    </div>
+
+    <script src="/static/js/toggleBar.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+    <script src="/static/js/weeks_ajax.js"></script>
+</body>
+</html>

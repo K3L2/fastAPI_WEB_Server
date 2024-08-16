@@ -1,0 +1,62 @@
+.chart-table-container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-around;
+}
+
+#table-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between; /* 추가 */
+    margin-bottom: 0.3rem;
+}
+
+
+#chartContainer {
+    /* flex: 1; */
+    margin-right: 2rem;
+
+}
+
+#tableContainer {
+    flex: 1;
+}
+
+#dataTable {
+    margin-top: 10px;
+}
+
+#defectPeriod {
+    display: inline;
+    float:right;
+    
+}
+
+.chartTitle {
+    margin-bottom: 2rem;
+}
+
+#alarm {
+    width: 30%;
+    margin-left: 1rem;
+}
+
+#errorRankTable thead {
+    background-color: #1b2b6d;
+    color: white;
+}
+
+
+.contentContainer {
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.table {
+    font-size: 1.2rem;
+}
+
+table th {
+    font-weight: normal;
+}
