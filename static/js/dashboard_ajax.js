@@ -9,8 +9,8 @@ $(document).ready(function() {
 function getTodayProductDefects() {
 
     // 수정 해야할 부분
-    const defect_url = 'https://api.npoint.io/ca4945292edaf352b591'
-    // const defect_url = 'http://13.125.18.156:8080/dashboard/getTodayDefects/products'
+    // const defect_url = 'https://api.npoint.io/ca4945292edaf352b591'
+    const defect_url = 'http://13.125.18.156:8080/dashboard/getTodayDefects/products'
 
     $.ajax({
         url: defect_url, // 요청을 보낼 URI
@@ -41,8 +41,8 @@ function getTodayProductDefects() {
 function getTodayDefects() {
 
     // 수정 해야할 부분
-    const today_defects_URL = 'https://api.npoint.io/833be13968fdbe705dd9'
-    // const todayDefect = 'http://13.125.18.156:8080/dashboard/getTodayDefects'
+    // const today_defects_URL = 'https://api.npoint.io/833be13968fdbe705dd9'
+    const today_defects_URL = 'http://13.125.18.156:8080/dashboard/getTodayDefects'
     // 오늘 전체 불량 개수 (pie Chart를 위함)
     $.ajax({
         type: 'GET',
@@ -122,23 +122,22 @@ function getGaugeChartData(data) {
 
     const totalDefectCount = defectProductDataArray.reduce((sum, value) => sum + value, 0)
 
-    // console.log(totalDefectCount);
-
-    // processState = (1 - (data[]))
-
     let errorProductRateArray = []
 
     defectProductDataArray.forEach((item) => {
         // item : defectProduct 개수가 들어옴
 
-        const defectRate = (item / totalProductCount);
-        let temp = 1 - defectRate;
-        let defectGrade = Number.parseFloat(temp * 100).toFixed(2);
+        if (totalProductCount == 0) {
+            errorProductRateArray.push(100);
+        } else {
+            const defectRate = (item / totalProductCount);
+            let temp = 1 - defectRate;
+            let defectGrade = Number.parseFloat(temp * 100).toFixed(2);
 
-        errorProductRateArray.push(defectGrade);
+            errorProductRateArray.push(defectGrade);
+        }
+
     });
-
-    // console.log(errorProductRateArray);
 
     /*
 
@@ -148,9 +147,12 @@ function getGaugeChartData(data) {
         }
 
     */
-    const processStateGrade = Number.parseFloat((1 - (totalDefectCount / totalProductCount)) * 100).toFixed(2);
+
+    let processStateGrade = 100;
     
-    // console.log(processStateGrade);
+    if (totalProductCount !== 0) {
+        processStateGrade = Number.parseFloat((1 - (totalDefectCount / totalProductCount)) * 100).toFixed(2);
+    }
 
     const chartData = {
         'totalProductData' : processStateGrade,
@@ -162,6 +164,8 @@ function getGaugeChartData(data) {
 
 
 function plotGaugeChart(chartData) {
+
+    // console.log(chartData);
 
     const GAUGE_WIDTH = 15;
     const TICK_DISTANCE = -10;
@@ -541,7 +545,7 @@ function plotGaugeChart(chartData) {
             }
             ]
         });
-    }, 5000);
+    }, 10000);
 
 }
 

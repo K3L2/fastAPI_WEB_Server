@@ -11,15 +11,17 @@ $(document).ready(function() {
 
 function getThisWeekDefects() {
 
-    const defects_url = 'https://api.npoint.io/a2737c95d789c7e570a2';
-    // const defects_url = 'http://13.125.18.156/weeks/getThisWeekDefects';
+    // const defects_url = 'https://api.npoint.io/a2737c95d789c7e570a2';
+    const defects_url = 'http://13.125.18.156/weeks/getThisWeekDefects';
 
     $.ajax({
         url: defects_url,
         method: 'GET',
         dataType: 'json',
         success: function(data) {
-            // console.log(data)
+
+            console.log('getThisWeekDefects');
+            console.log(data)
             // 시작 날짜 끝 날짜
             setStartEnd(data)
             sortedData = processRankData(data);
@@ -50,8 +52,8 @@ function getThisWeekDefects() {
 
 function getWeeksDefects() {
 
-    const defects_url = 'https://api.npoint.io/15bce5b28c59e4d3191a'
-    // const defects_url = 'http://13.125.18.156/weeks/getWeeksDefects';
+    // const defects_url = 'https://api.npoint.io/15bce5b28c59e4d3191a'
+    const defects_url = 'http://13.125.18.156/weeks/getWeeksDefects';
 
     $.ajax({
         url: defects_url,
@@ -194,6 +196,7 @@ function plotBarChart(chartData) {
         x_axis.push(element + 'W');
     });
 
+    console.log('plotBarChart');
     console.log(chartData)
 
     barChartOption = {

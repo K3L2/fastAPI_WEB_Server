@@ -3,7 +3,6 @@ from typing import Union
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-import numpy as np
 
 app = FastAPI()
 
